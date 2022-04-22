@@ -16,10 +16,10 @@ use App\Http\Controllers\ProdutosController;
 
 Route::get('/produtos', [ProdutosController::class, 'index']);
 
-Route::get('/produtos/{id}', [ProdutosController::class, '']);
+Route::get('/produtos/{id}', [ProdutosController::class, 'produto']);
 
 Route::post('/produtos', [ProdutosController::class, 'create']);
 
-Route::delete('/produtos/{id}', [ProdutosController::class, '']);
+Route::delete('/produtos/{id}', [ProdutosController::class, 'delete'])->name('delete.prod');
 
 Route::put('produtos/{id}', [ProdutosController::class, '']);

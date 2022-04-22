@@ -22,4 +22,14 @@ class ProdutosController extends Controller
         $produtos = Produto::all();
         return view('index', ['data'=>$produtos]);
     }
+
+    public function produto($id){
+        $produtos = Produto::find($id);
+        return view('produto', ['produtos'=>$produtos]);
+    }
+
+    public function delete($id){
+        $produtos = Produto::find($id)->delete();
+        //return redirect('produtos');
+    }
 }
