@@ -9,13 +9,13 @@
 <body>
     Página dos produtos.
 
-    <form action="/produtos" method="post">
+    <form action="/produtos" method="POST">
         @csrf
         <input type="text" name="nome"><br>
         <input type="text" name="categoria"><br>
         <input type="text" name="descricao"><br>
         <input type="text" name="marca"><br>
-        <input type="checkbox" name="importado" id=""><br>
+        <input type="checkbox" name="importado" id="import"><br>
         <button type="submit">Enviar</button>
     </form>
 

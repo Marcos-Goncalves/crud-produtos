@@ -20,6 +20,9 @@
         @method('DELETE')
         <button type="submit">Deletar</button>
     </form>
+    <br>
+
+    <a href="{{route('edit.prod', $produtos->id)}}">Editar</a>
 
 </body>
 </html>

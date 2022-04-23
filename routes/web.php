@@ -22,4 +22,5 @@ Route::post('/produtos', [ProdutosController::class, 'create']);
 
 Route::delete('/produtos/{id}', [ProdutosController::class, 'delete'])->name('delete.prod');
 
-Route::put('produtos/{id}', [ProdutosController::class, '']);
+Route::get('produtos/edit/{id}', [ProdutosController::class, 'edit'])->name('edit.prod');
+Route::put('produtos/update/{id}', [ProdutosController::class, 'update']);
