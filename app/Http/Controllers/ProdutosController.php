@@ -43,4 +43,5 @@ class ProdutosController extends Controller
         return redirect('produtos');
 
     }
+    
 }

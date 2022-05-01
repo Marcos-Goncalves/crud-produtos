@@ -20,7 +20,7 @@
     </form>
 
     @foreach($data as $item) 
-        <p>{{$item['nome']}}</p>
+        <p>{{$item['id']."-".$item['nome']}}</p>
     @endforeach
 </body>
 </html>
