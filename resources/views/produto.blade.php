@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>{{$produtos['nome']}}</title>
+    <title>Produto - {{$produtos['nome']}}</title>
 </head>
 <body>
     <table class="table">
@@ -27,16 +27,16 @@
       <td scope="row">{{$produtos['categoria']}}</td>
       <td scope="row">{{$produtos['descricao']}}</td>
       <td scope="row">{{$produtos['marca']}}</td>
-      <td scope="row">{{($produtos['importado'] == 1 ? 'Importado' : 'Não Importado')}}</td>
+      <td scope="row">{{($produtos['importado'] == 1 ? 'Importado' : 'Nacional')}}</td>
       <td>
         <form action="{{route('delete.prod', $produtos->id)}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit">Deletar</button>
+            <button type="submit" class="btn btn-danger">Deletar</button>
         </form>
       </td>
       <td>
-        <a href="{{route('edit.prod', $produtos->id)}}">Editar</a>
+        <a href="{{route('edit.prod', $produtos->id)}}"><button class="btn btn-info">Editar</button></a>
       </td>
       
     </tr>
