@@ -13,7 +13,7 @@ class ProdutosController extends Controller
         $produto->categoria = $request->categoria;
         $produto->descricao = $request->descricao;
         $produto->marca = $request->marca;
-        $produto->importado = $request->importado == 'on'? true:false;
+        $produto->importado = $request->options == 'importado' ? true:false;
         $produto->save();
         return redirect('produtos');
     }
