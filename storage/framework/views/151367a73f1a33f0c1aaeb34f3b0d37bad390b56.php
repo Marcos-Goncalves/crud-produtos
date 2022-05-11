@@ -14,7 +14,7 @@
         <div class="container d-flex justify-content-between w-75 py-4">
             <div class="">
                 <form action="/produtos" method="POST">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                     <div class="form-group py-2">
                         <label for="formGroupExampleInput"><strong>Nome do produto:</strong></label>
                         <input type="text" class="form-control" name="nome" placeholder="Oculos Ray-Ban">
@@ -58,14 +58,14 @@
                     </thead>
                     <tbody>
 
-                    @foreach($data as $item)
+                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$item['id']}}</td>
-                            <td>{{$item['nome']}}</td>
-                            <td>{{$item['categoria']}}</td>
-                            <td>{{$item['marca']}}</td>
+                            <td><?php echo e($item['id']); ?></td>
+                            <td><?php echo e($item['nome']); ?></td>
+                            <td><?php echo e($item['categoria']); ?></td>
+                            <td><?php echo e($item['marca']); ?></td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
             </div>
@@ -74,3 +74,4 @@
     <br>
 </body>
 </html>
+<?php /**PATH /home/malxg/Documentos/projetos/laravel-test/crud-produtos/resources/views/index.blade.php ENDPATH**/ ?>

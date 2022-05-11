@@ -13,9 +13,9 @@ class ProdutosController extends Controller
         $produto->categoria = $request->categoria;
         $produto->descricao = $request->descricao;
         $produto->marca = $request->marca;
-        $produto->importado = $request->options == 'importado' ? true:false;
+        $produto->importado = $request->importado == 1 ? true:false;
         $produto->save();
-        return redirect('produtos');
+        return redirect('/');
     }
 
     public function index(){
@@ -30,7 +30,7 @@ class ProdutosController extends Controller
 
     public function delete($id){
         $produtos = Produto::find($id)->delete();
-        return redirect('produtos');
+        return redirect('/');
     }
 
     public function edit($id){
@@ -40,7 +40,7 @@ class ProdutosController extends Controller
 
     public function update(Request $request){
         Produto::findOrFail($request->id)->update($request->all());
-        return redirect('produtos');
+        return redirect('/');
     }
     
 }

@@ -12,33 +12,33 @@
         <h1 class="display-4">EDITANDO PRODUTO</h1>
         <p class="lead">Edite o registro do produto abaixo:</p>
         <div class="container d-flex justify-content-center py-4">
-                <form action="{{route('update.prod', $produtos->id)}}" class="w-50" method="POST">
-                    @csrf
-                    @method('PUT')
+                <form action="<?php echo e(route('update.prod', $produtos->id)); ?>" class="w-50" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
                     <div class="form-group py-2">
                         <label for="formGroupExampleInput"><strong>Nome do produto:</strong></label>
-                        <input type="text" class="form-control" name="nome" value="{{$produtos['nome']}}">
+                        <input type="text" class="form-control" name="nome" value="<?php echo e($produtos['nome']); ?>">
                     </div>
                     <div class="form-group py-2">
                         <label for="formGroupExampleInput2"> <strong>Categoria</strong> </label>
-                        <input type="text" class="form-control" name="categoria" value="{{$produtos['categoria']}}">
+                        <input type="text" class="form-control" name="categoria" value="<?php echo e($produtos['categoria']); ?>">
                     </div>
                     <div class="form-group py-2">
                         <label for="formGroupExampleInput2"> <strong>Descrição</strong> </label>
-                        <input type="text" class="form-control" name="descricao" value="{{$produtos['descricao']}}">
+                        <input type="text" class="form-control" name="descricao" value="<?php echo e($produtos['descricao']); ?>">
                     </div>
                     <div class="form-group py-2">
                         <label for="formGroupExampleInput2"><strong>Marca</strong></label>
-                        <input type="text" class="form-control" name="marca" value="{{$produtos['marca']}}">
+                        <input type="text" class="form-control" name="marca" value="<?php echo e($produtos['marca']); ?>">
                     </div><br>
 
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <div class="form-row">
                             <label class="btn btn-danger active">
-                            <input type="radio" name="importado" id="option1" value="1" {{ ($produtos['importado'] == 1 ? 'checked' : '') }}> Importado 🇺🇸
+                            <input type="radio" name="importado" id="option1" value="1" <?php echo e(($produtos['importado'] == 1 ? 'checked' : '')); ?>> Importado 🇺🇸
                         </label>
                         <label class="btn btn-success">
-                            <input type="radio" name="importado" id="option2" value="0" {{ ($produtos['importado'] == 0 ? 'checked' : '') }}> Nacional 🇧🇷
+                            <input type="radio" name="importado" id="option2" value="0" <?php echo e(($produtos['importado'] == 0 ? 'checked' : '')); ?>> Nacional 🇧🇷
                         </label>
                         </div>
                     </div><br>
@@ -53,3 +53,4 @@
     </div>
 </body>
 </html>
+<?php /**PATH /home/malxg/Documentos/projetos/laravel-test/crud-produtos/resources/views/edit.blade.php ENDPATH**/ ?>
