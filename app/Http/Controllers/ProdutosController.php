@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoStoreRequest;
 use App\Models\Produto;
 
 class ProdutosController extends Controller
 {
-    public function create(Request $request) {
+    public function create(ProdutoStoreRequest $request) {
         $produto = new Produto();
         $produto->nome = $request->nome;
         $produto->categoria = $request->categoria;
@@ -19,7 +20,7 @@ class ProdutosController extends Controller
     }
 
     public function index(){
-        $produtos = Produto::all();
+        $produtos = Produto::paginate(2);
         return view('index', ['data'=>$produtos]);
     }
 
@@ -38,7 +39,7 @@ class ProdutosController extends Controller
         return view('edit', ['produtos' => $produtos]);
     }
 
-    public function update(Request $request){
+    public function update(ProdutoStoreRequest $request){
         Produto::findOrFail($request->id)->update($request->all());
         return redirect('/');
     }
